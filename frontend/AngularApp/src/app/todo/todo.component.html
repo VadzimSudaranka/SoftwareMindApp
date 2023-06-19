@@ -1,0 +1,20 @@
+<h2>List of tasks</h2>
+<table>
+
+  <tr *ngFor="let todo of todos">
+    <td>{{ todo.title }}</td>
+    <td>{{ todo.description }}</td>
+    <td><input type="checkbox" [(ngModel)]="todo.completed" (change)="updateTodoStatus(todo)"></td>
+    <td><button (click)="deleteTodo(todo.id)">Delete</button></td>
+  </tr>
+  
+</table>
+<h3>Create Task</h3>
+<form (ngSubmit)="createTodo()">
+  <label>Title:</label>
+  <input type="text" [(ngModel)]="newTodo.title" name="title" required>
+  <label>Description:</label>
+  <input type="text" [(ngModel)]="newTodo.description" name="description" required>
+  <button type="submit">Create</button>
+</form>
+
